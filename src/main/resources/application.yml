@@ -19,7 +19,7 @@ spring:
           content-type: 'application/*+avro'
       kafka:
         binder:
-          brokers: 'localhost:29092'
+          brokers: 'localhost:9092'
           min-partition-count: 2
           replication-factor: 1
           auto-create-topics: true
