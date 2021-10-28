@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "UserCreationEvent",
+  "namespace": "br.com.silveira.raphael.spring.cloud.stream.kafka.avro.infrastructure.schema",
+  "fields": [
+    {
+      "name": "NAME",
+      "type": "string"
+    },
+    {
+      "name": "AGE",
+      "type": "int"
+    },
+    {
+      "name": "ADDRESS",
+      "type": "string"
+    },
+    {
+      "name": "SITE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    }
+  ]
+}

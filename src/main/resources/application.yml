@@ -1,0 +1,45 @@
+spring:
+  kafka.consumer.properties.spring.json.trusted.packages: '*'
+  cloud:
+    stream:
+      default:
+        producer:
+          use-native-encoding: true
+        consumer:
+          use-native-encoding: true
+      bindings:
+        user-creation-in-0:
+          group: 'spring-cloud-stream-app-consumer-group'
+          destination: 'user.creation.topic'
+          content-type: 'application/*+avro'
+          consumer:
+            concurrency: 2
+        user-creation-out-0:
+          destination: 'user.creation.topic'
+          content-type: 'application/*+avro'
+      kafka:
+        binder:
+          brokers: 'localhost:29092'
+          min-partition-count: 2
+          replication-factor: 1
+          auto-create-topics: true
+      binders:
+        kafka:
+          type: 'kafka'
+          environment:
+            spring:
+              kafka:
+                properties:
+                  schema.registry.url: 'http://localhost:8081'
+                  specific.avro.reader: true
+                producer:
+                  key-serializer: 'org.apache.kafka.common.serialization.StringSerializer'
+                  value-serializer: 'io.confluent.kafka.serializers.KafkaAvroSerializer'
+                consumer:
+                  key-deserializer: 'org.apache.kafka.common.serialization.StringDeserializer'
+                  value-deserializer: 'io.confluent.kafka.serializers.KafkaAvroDeserializer'
+      default-binder: kafka
+    function:
+      definition: user-creation
+
+
