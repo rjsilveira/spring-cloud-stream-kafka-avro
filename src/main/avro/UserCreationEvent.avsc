@@ -22,6 +22,14 @@
         "string"
       ],
       "default": null
+    },
+    {
+      "name": "LAST_NAME",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     }
   ]
 }

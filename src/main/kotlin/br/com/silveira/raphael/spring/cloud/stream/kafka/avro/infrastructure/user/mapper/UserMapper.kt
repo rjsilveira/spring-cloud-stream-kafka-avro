@@ -12,5 +12,5 @@ class UserMapper {
 
     infix fun toDomain(event: UserCreationEvent) = User(event.name, event.age, event.address, event.site)
 
-    infix fun toEvent(user: User) = UserCreationEvent(user.name, user.age, user.address, user.site)
+    infix fun toEvent(user: User) = UserCreationEvent(user.name, user.age, user.address, user.site, null)
 }

@@ -20,5 +20,4 @@ class UserReceiptGatewayAdapter(
         val event = this.mapper toEvent user
         this.producer send event
     }
-
 }
