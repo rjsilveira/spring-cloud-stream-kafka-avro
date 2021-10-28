@@ -1,8 +1,3 @@
-# Lambda Proxy
-
-Lambda responsável por fazer receber a chamada do API gateway e redirecionar para o serviço de pagamentos.
-
-
 
 ## Desenvolvimento local
 
